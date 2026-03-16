@@ -20,7 +20,6 @@
   .label{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gray);margin-bottom:0.5rem;}
   .section-rule{height:0.5px;background:var(--lgray);}
 
-  /* HERO */
   #hero{height:100vh;display:flex;flex-direction:column;justify-content:flex-end;background:#fff;position:relative;overflow:hidden;padding-top:52px;}
   .hero-num{position:absolute;top:70px;right:2.5rem;font-size:clamp(6rem,18vw,14rem);font-weight:500;color:var(--off);line-height:1;user-select:none;}
   .hero-inner{padding:2.5rem 2.5rem 0;position:relative;z-index:2;}
@@ -33,7 +32,6 @@
   .btn.filled:hover{background:#333;}
   .btn.outline:hover{background:var(--black);color:#fff;}
 
-  /* SYNOPSIS */
   #synopsis{padding:4rem 2.5rem;}
   #synopsis .grid{display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start;}
   #synopsis h2{font-size:clamp(1.8rem,4vw,3rem);font-weight:500;line-height:1.1;}
@@ -41,7 +39,17 @@
   #synopsis p:last-child{margin-bottom:0;}
   .logline{font-size:1.15rem;font-weight:500;color:var(--black);border-left:3px solid var(--black);padding-left:1.2rem;margin-bottom:1.75rem;line-height:1.5;}
 
-  /* MAP */
+  #video{padding:0;}
+  .video-frame{width:100%;aspect-ratio:16/9;background:var(--black);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+  .video-placeholder{text-align:center;}
+  .play-btn{width:64px;height:64px;border:2px solid #fff;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;cursor:pointer;transition:background 0.15s;}
+  .play-btn:hover{background:rgba(255,255,255,0.1);}
+  .play-triangle{width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:20px solid #fff;margin-left:4px;}
+  .video-label{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:#666;}
+  .video-meta{display:flex;gap:2rem;margin-top:1.5rem;padding-top:1.5rem;border-top:0.5px solid var(--lgray);}
+  .video-meta-item{display:flex;flex-direction:column;gap:0.25rem;}
+  .video-meta-item .meta-label{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gray);}
+
   #map{padding:4rem 2.5rem;}
   #map h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:500;margin-bottom:0.25rem;}
   #map .sub{font-size:0.9rem;color:var(--gray);margin-bottom:1.5rem;}
@@ -53,10 +61,10 @@
   .hs-dot{width:20px;height:20px;border-radius:50%;background:var(--black);display:flex;align-items:center;justify-content:center;}
   .hs-dot span{font-size:9px;font-weight:500;color:#fff;font-family:-apple-system,sans-serif;}
   .hs-label{position:absolute;top:36px;left:50%;transform:translateX(-50%);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--black);white-space:nowrap;background:#fff;padding:2px 6px;border:0.5px solid var(--lgray);}
-  .beat-panel{display:none;}
-  .beat-overlay{display:none;position:absolute;z-index:20;background:#fff;border:0.5px solid var(--black);padding:1.25rem 1.5rem;max-width:280px;box-shadow:0 4px 24px rgba(0,0,0,0.13);}
+
+  .beat-overlay{display:none;position:absolute;z-index:20;background:#fff;border:0.5px solid var(--black);padding:1.25rem 1.5rem;width:260px;box-shadow:0 4px 24px rgba(0,0,0,0.13);}
   .beat-overlay.active{display:block;}
-  .beat-big{font-size:2.5rem;font-weight:500;color:var(--off);line-height:1;margin-bottom:0.5rem;}
+  .beat-big{font-size:2.5rem;font-weight:500;color:var(--off);line-height:1;margin-bottom:0.4rem;}
   .beat-time{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gray);margin-bottom:0.25rem;}
   .beat-title{font-size:1rem;font-weight:500;color:var(--black);margin-bottom:0.4rem;}
   .beat-desc{font-size:0.82rem;color:#555;line-height:1.65;}
@@ -64,7 +72,6 @@
   .beat-close:hover{color:var(--black);border-color:var(--black);}
   .map-hint{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:#bbb;text-align:center;margin-top:0.75rem;}
 
-  /* CHARACTERS */
   #characters{background:var(--off);padding:4rem 2.5rem;}
   #characters h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:500;margin-bottom:2rem;}
   .char-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--lgray);}
@@ -74,7 +81,6 @@
   .char-role{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);margin-bottom:1rem;}
   .char-desc{font-size:0.9rem;color:#555;line-height:1.7;}
 
-  /* PRODUCTION */
   #production{background:var(--black);padding:4rem 2.5rem;}
   #production .label{color:#555;}
   #production h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:500;color:#fff;margin-bottom:2rem;}
@@ -97,6 +103,7 @@
     .nav-links{display:none;}
     .hero-num{font-size:30vw;}
     .hs-label{display:none;}
+    .beat-overlay{width:200px;}
   }
 </style>
 </head>
@@ -106,6 +113,7 @@
   <div class="nav-title">On Guard</div>
   <div class="nav-links">
     <a href="#synopsis">About</a>
+    <a href="#video">Teaser</a>
     <a href="#map">Story Map</a>
     <a href="#characters">Characters</a>
     <a href="#production">Production</a>
@@ -162,24 +170,22 @@
           <div class="video-meta">
             <div class="video-meta-item">
               <span class="meta-label">Format</span>
-              <span class="meta-value" style="color:#f0f0f0;">60–90 sec</span>
+              <span style="font-size:0.95rem;font-weight:500;color:#f0f0f0;">60–90 sec</span>
             </div>
             <div class="video-meta-item">
               <span class="meta-label">Platform</span>
-              <span class="meta-value" style="color:#f0f0f0;">YouTube / Instagram</span>
+              <span style="font-size:0.95rem;font-weight:500;color:#f0f0f0;">YouTube / Instagram</span>
             </div>
             <div class="video-meta-item">
               <span class="meta-label">Status</span>
-              <span class="meta-value" style="color:#f0f0f0;">In production</span>
+              <span style="font-size:0.95rem;font-weight:500;color:#f0f0f0;">In production</span>
             </div>
           </div>
         </div>
       </div>
       <div class="video-frame">
         <div class="video-placeholder">
-          <div class="play-btn">
-            <div class="play-triangle"></div>
-          </div>
+          <div class="play-btn"><div class="play-triangle"></div></div>
           <div class="video-label">Coming Soon</div>
         </div>
       </div>
@@ -195,72 +201,72 @@
   <div class="label">Story Map</div>
   <h2>A day on patrol</h2>
   <div class="sub">Tap a marker to explore each beat of the film.</div>
-      <div class="map-container" id="mapWrap">
-    <img src="labmountain.jpg" id="mapImg" alt="Labrador Mountain aerial map" style="width:100%;height:auto;display:block;border:0.5px solid var(--lgray);"/> alt="Labrador Mountain aerial map" style="width:100%;height:auto;display:block;border:0.5px solid var(--lgray);"/>
+  <div class="map-container" id="mapWrap">
+    <img src="labmountain.jpg" id="mapImg" alt="Labrador Mountain aerial map" style="width:100%;height:auto;display:block;border:0.5px solid var(--lgray);"/>
 
-    <!-- Hotspot 1: Patrol HQ / Lodge — bottom center (large brown lodge building) -->
+    <!-- Hotspot 1: Patrol HQ -->
     <div class="hotspot" style="left:50%;top:80%;" onclick="showBeat(1)">
       <div class="hs-ring"><div class="hs-dot"><span>1</span></div></div>
       <div class="hs-label">Patrol HQ</div>
     </div>
-    <!-- Hotspot 2: Summit — top of main chairlift run, top left -->
+    <!-- Hotspot 2: Summit -->
     <div class="hotspot" style="left:32%;top:7%;" onclick="showBeat(2)">
       <div class="hs-ring"><div class="hs-dot"><span>2</span></div></div>
       <div class="hs-label">Summit</div>
     </div>
-    <!-- Hotspot 3: Mid-mountain — center of main runs -->
+    <!-- Hotspot 3: Mid-mountain -->
     <div class="hotspot" style="left:36%;top:38%;" onclick="showBeat(3)">
       <div class="hs-ring"><div class="hs-dot"><span>3</span></div></div>
       <div class="hs-label">Mid-Mtn</div>
     </div>
-    <!-- Hotspot 4: Left slope — left side trail area -->
+    <!-- Hotspot 4: Left slope -->
     <div class="hotspot" style="left:18%;top:45%;" onclick="showBeat(4)">
       <div class="hs-ring"><div class="hs-dot"><span>4</span></div></div>
       <div class="hs-label">Left Slope</div>
     </div>
-    <!-- Hotspot 5: Base / right side lodge + parking -->
+    <!-- Hotspot 5: Base area -->
     <div class="hotspot" style="left:76%;top:65%;" onclick="showBeat(5)">
       <div class="hs-ring"><div class="hs-dot"><span>5</span></div></div>
       <div class="hs-label">Base Area</div>
     </div>
-  </div>
 
-  <div class="beat-overlay" id="beat-1" style="bottom:22%;left:38%;">
-    <div class="beat-big">01</div>
-    <div class="beat-time">Pre-dawn · 6:00am</div>
-    <div class="beat-title">Morning brief & gear check</div>
-    <div class="beat-desc">Before a single skier arrives, patrol gathers in the hut. Helena runs the morning briefing — conditions, hazards, assignments. Radios are tested. Equipment is checked. The mountain is silent outside.</div>
-    <span class="beat-close" onclick="closeBeat()">Close ×</span>
+    <!-- Beat overlays — inside map container -->
+    <div class="beat-overlay" id="beat-1" style="bottom:5%;left:30%;">
+      <div class="beat-big">01</div>
+      <div class="beat-time">Pre-dawn · 6:00am</div>
+      <div class="beat-title">Morning brief & gear check</div>
+      <div class="beat-desc">Before a single skier arrives, patrol gathers in the hut. Helena runs the morning briefing — conditions, hazards, assignments. Radios are tested. Equipment is checked.</div>
+      <span class="beat-close" onclick="closeBeat()">Close ×</span>
+    </div>
+    <div class="beat-overlay" id="beat-2" style="top:5%;left:35%;">
+      <div class="beat-big">02</div>
+      <div class="beat-time">Opening · 8:30am</div>
+      <div class="beat-title">Summit sweep & lift open</div>
+      <div class="beat-desc">Patrol skis every run top to bottom before the lifts open. They're looking for overnight hazards — ice, debris, boundary issues. First tracks on the mountain belong to them.</div>
+      <span class="beat-close" onclick="closeBeat()">Close ×</span>
+    </div>
+    <div class="beat-overlay" id="beat-3" style="top:25%;left:38%;">
+      <div class="beat-big">03</div>
+      <div class="beat-time">Midday · 11:00am–2:00pm</div>
+      <div class="beat-title">Crowd presence & operations</div>
+      <div class="beat-desc">The mountain fills with kids, families, weekend skiers. Amid the noise, patrol is constantly watching from above — aware of everyone, visible to almost no one.</div>
+      <span class="beat-close" onclick="closeBeat()">Close ×</span>
+    </div>
+    <div class="beat-overlay" id="beat-4" style="top:30%;left:1%;">
+      <div class="beat-big">04</div>
+      <div class="beat-time">Afternoon · 1:00–3:00pm</div>
+      <div class="beat-title">Incident response</div>
+      <div class="beat-desc">When something happens on the slope, patrol is already close. The response is calm, focused, practiced. The film stays with the discipline required to handle it.</div>
+      <span class="beat-close" onclick="closeBeat()">Close ×</span>
+    </div>
+    <div class="beat-overlay" id="beat-5" style="top:40%;right:1%;">
+      <div class="beat-big">05</div>
+      <div class="beat-time">Closing · 4:30pm+</div>
+      <div class="beat-title">Final sweep & closing</div>
+      <div class="beat-desc">As the last skiers leave, patrol sweeps every run one final time. The mountain goes quiet. The film ends where it began — with silence on the hill.</div>
+      <span class="beat-close" onclick="closeBeat()">Close ×</span>
+    </div>
   </div>
-  <div class="beat-overlay" id="beat-2" style="top:5%;left:35%;">
-    <div class="beat-big">02</div>
-    <div class="beat-time">Opening · 8:30am</div>
-    <div class="beat-title">Summit sweep & lift open</div>
-    <div class="beat-desc">Patrol skis every run top to bottom before the lifts open. They're looking for overnight hazards — ice, debris, boundary issues. First tracks on the mountain belong to them.</div>
-    <span class="beat-close" onclick="closeBeat()">Close ×</span>
-  </div>
-  <div class="beat-overlay" id="beat-3" style="top:30%;left:30%;">
-    <div class="beat-big">03</div>
-    <div class="beat-time">Midday · 11:00am–2:00pm</div>
-    <div class="beat-title">Crowd presence & operations</div>
-    <div class="beat-desc">The mountain fills with kids, families, weekend skiers. Amid the noise, patrol is constantly watching from above — aware of everyone, visible to almost no one. Radios stay busy.</div>
-    <span class="beat-close" onclick="closeBeat()">Close ×</span>
-  </div>
-  <div class="beat-overlay" id="beat-4" style="top:35%;right:55%;">
-    <div class="beat-big">04</div>
-    <div class="beat-time">Afternoon · 1:00–3:00pm</div>
-    <div class="beat-title">Incident response</div>
-    <div class="beat-desc">When something happens on the slope, patrol is already close. The response is calm, focused, practiced. The film doesn't chase drama — it stays with the discipline required to handle it.</div>
-    <span class="beat-close" onclick="closeBeat()">Close ×</span>
-  </div>
-  <div class="beat-overlay" id="beat-5" style="top:10%;right:2%;">
-    <div class="beat-big">05</div>
-    <div class="beat-time">Closing · 4:30pm+</div>
-    <div class="beat-title">Final sweep & closing</div>
-    <div class="beat-desc">As the last skiers leave, patrol sweeps every run one final time. The mountain goes quiet. The film ends where it began — with silence on the hill.</div>
-    <span class="beat-close" onclick="closeBeat()">Close ×</span>
-  </div>
-
   <div class="map-hint">Tap a marker to explore the patrol day</div>
 </section>
 
@@ -313,11 +319,6 @@
 </footer>
 
 <script>
- 
-  // Since we can't directly embed the uploaded file, we use a placeholder
-  // To use your actual image: host it and replace the src above, or use base64
-  img.onerror = function(){ this.style.background='#d3d1c7'; this.style.minHeight='400px'; };
-
   function showBeat(n){
     document.querySelectorAll('.beat-overlay').forEach(p=>p.classList.remove('active'));
     var p=document.getElementById('beat-'+n);
